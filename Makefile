@@ -14,12 +14,6 @@ GNL_SRCS	= $(addprefix $(GNL_DIR), $(_GNL_SRCS))
 PARSING_DIR	= srcs/parsing/
 
 _PARSING_SRCS	= read_file.c		\
-				#   check.c			\
-				#   set.c				\
-				#   set_color.c		\
-				#   set_color_utils.c	\
-				#   check_map.c		\
-				#   check_map2.c		\
 
 				  
 
@@ -28,10 +22,7 @@ PARSING_SRCS	= $(addprefix $(PARSING_DIR), $(_PARSING_SRCS))
 INIT_DIR	= srcs/init/
 
 _INIT_SRCS	=	init_vars_info.c	\
-				img_xpm_set.c		\
 				init_background.c	\
-				# init_vars.c			\
-				load_texture.c		\
 
 
 INIT_SRCS	= $(addprefix $(INIT_DIR), $(_INIT_SRCS))
@@ -41,20 +32,7 @@ EVENT_DIR	= srcs/event/
 _EVENT_SRCS	= rendering.c				\
 			  mini_map.c				\
 			  key_event.c				\
-			  check_key_and_mouse.c		\
 			  manage_monster.c			\
-			#   check_key_and_mouse2.c	\
-			#   event_function1.c			\
-			#   event_function2.c			\
-			#   kill_monster.c			\
-			#   mouse_event.c				\
-			#   print_window1.c			\
-			#   print_window2.c			\
-			#   ray_casting.c				\
-			#   ray_function.c			\
-			#   ray_function_dda.c		\
-			#   sprite.c					\
-			#   sprite2.c \
 
 
 EVENT_SRCS	= $(addprefix $(EVENT_DIR), $(_EVENT_SRCS))
@@ -68,17 +46,14 @@ _UTILS_SRCS	=	print_error.c			\
 				ft_get_data_addr.c		\
 				ft_xpm_file_to_image.c	\
 				random_generator.c		\
-				# free.c					\
-				# alloc_copy_str.c		\
-				# size_arr_2d.c			\
-				# free_vars.c				\
 
 UTILS_SRCS	= $(addprefix $(UTILS_DIR), $(_UTILS_SRCS))
 
 
 TEST_DIR	= srcs/test/
 
-_TEST_SRCS	= print.c \
+_TEST_SRCS	= 
+#print.c \
 
 TEST_SRCS	= $(addprefix $(TEST_DIR), $(_TEST_SRCS))
 

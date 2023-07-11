@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:14:34 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 14:30:09 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:28:55 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 # define PLAYER "texture/chobo_right.xpm"
 # define EMPTY "texture/tile.xpm"
 # define WALL "texture/wall.xpm"
-# define MONSTER "texture/monster.xpm"
+# define MON1 "texture/mon_1.xpm"
+# define MON2 "texture/mon_2.xpm"
+# define MON3 "texture/mon_3.xpm"
 # define EXIT_CLOSE "texture/exit_close.xpm"
 # define EXIT_OPEN "texture/exit_open.xpm"
 # define POTION "texture/collect.xpm"
@@ -78,10 +80,6 @@ enum	e_hook_event
 	PRESS_MASK = 1L<<0,
 	KEY_RELEASE = 3,
 	RELEASE_MASK = 1L<<1,
-	MOUSE_BUTTON = 4,
-	BUTTON_MASK = 1L<<2,
-	MOUSE_MOVE = 6,
-	MOVE_MASK = 1L<<6,
 	WINDOW_DESTROY = 17,
 	DESTROY_MASK = 0,
 }	;

@@ -6,43 +6,21 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:17:00 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/04 19:35:36 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:14:11 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// static void	draw_mlx(t_vars *vars)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	while (i < WIN_HEIGHT)
-// 	{
-// 		j = 0;
-// 		while (j < WIN_WIDTH)
-// 		{
-// 			vars->info.img.data[i * WIN_WIDTH + j] = vars->info.buf[i][j];
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->info.img.img, 0, 0);
-// }
-
 static int	dead_check_game_end(t_vars *vars)
 {
+	if (vars->dead == 10000)
+		exit_game(vars);
 	if (!vars->dead)
 		return (0);
+	vars->dead++;
 	if (vars->keyboard[ESC])
 		exit_game(vars);
-	// else if (vars->data.keyboard[P])
-	// {
-	// 	reset_game(vars);
-	// 	vars->data.dead_check = 0;
-	// 	return (0);
-	// }
 	return (1);
 }
 
@@ -54,7 +32,19 @@ static void	warning_message(t_vars *vars)
 	if (vars->warning_time % 7 == 0)
 		return ;
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->xpm.warning \
-		, vars->width / 100 * 20, vars->height / 100 * 35);
+		, vars->width / 4 * 50, vars->height / 3 * 50);
+}
+
+static void	print_step(t_vars *vars)
+{
+	char	*step;
+	char	*str;
+
+	step = ft_itoa(vars->cnt_step);
+	str = ft_strjoin("step = ", step);
+	mlx_string_put(vars->mlx, vars->win, 10, 10, 0xFFFFFF, str);
+	free(step);
+	free(str);
 }
 
 int	rendering(t_vars *vars)
@@ -66,6 +56,7 @@ int	rendering(t_vars *vars)
 	mlx_clear_window(vars->mlx, vars->win);
 	fill_background(vars);
 	mini_map(vars);
+	print_step(vars);
 	warning_message(vars);
 	if (vars->dead && ++vars->dead_check)
 		mlx_put_image_to_window(vars->mlx, vars->win, \

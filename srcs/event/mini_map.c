@@ -6,11 +6,24 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:23:47 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 14:36:38 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:11:07 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	sprite_monster(t_vars *vars, char *map, int x, int y)
+{
+	if (vars->sprite % 30 < 10)
+		mlx_put_image_to_window(vars->mlx, vars->win, \
+							vars->mini.mon_1, y * 50, x * 50);
+	else if (vars->sprite % 30 < 20)
+		mlx_put_image_to_window(vars->mlx, vars->win, \
+							vars->mini.mon_2, y * 50, x * 50);
+	else
+		mlx_put_image_to_window(vars->mlx, vars->win, \
+							vars->mini.mon_3, y * 50, x * 50);
+}
 
 static void	put_mini_xpm(t_vars *vars, char *map, int x, int y)
 {
@@ -21,8 +34,7 @@ static void	put_mini_xpm(t_vars *vars, char *map, int x, int y)
 		mlx_put_image_to_window(vars->mlx, vars->win, \
 					vars->mini.wall, y * 50, x * 50);
 	else if (map[x * vars->width + y] == 'M')
-		mlx_put_image_to_window(vars->mlx, vars->win, \
-					vars->mini.monster, y * 50, x * 50);
+		sprite_monster(vars, map, x, y);
 	else if (map[x * vars->width + y] == 'C')
 		mlx_put_image_to_window(vars->mlx, vars->win, \
 					vars->mini.potion, y * 50, x * 50);
@@ -35,9 +47,6 @@ static void	put_mini_xpm(t_vars *vars, char *map, int x, int y)
 			mlx_put_image_to_window(vars->mlx, vars->win, \
 						vars->mini.exit_open, y * 50, x * 50);
 	}
-	// else if (map[x][y] == 'H')
-	// 	mlx_put_image_to_window(vars->mlx, vars->win, \
-	// 				vars->mini.npc, y * 50, x * 50);
 }
 
 static void	fill_minimap(t_vars *vars, char *map)
@@ -60,5 +69,6 @@ static void	fill_minimap(t_vars *vars, char *map)
 
 void	mini_map(t_vars *vars)
 {
+	vars->sprite++;
 	fill_minimap(vars, vars->map);
 }

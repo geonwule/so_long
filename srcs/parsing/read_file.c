@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:01:36 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/06 15:21:26 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:16:53 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	init_vars_parsing(t_vars *vars, char *line)
 	vars->map = NULL;
 	vars->height = 0;
 	vars->width = ft_strlen_nonl(line);
-	vars->cnt_move = 0;
+	vars->cnt_step = 0;
 	vars->cnt_collect = 0;
 	vars->dead = 0;
 	vars->dead_check = 0;
@@ -67,6 +67,7 @@ static void	init_vars_parsing(t_vars *vars, char *line)
 	vars->monster_num = 0;
 	vars->warning_time = 0;
 	vars->patrol = 0;
+	vars->sprite = 0;
 }
 
 static void	check_pos(t_vars *vars, int i)
@@ -134,12 +135,3 @@ void	read_file(t_vars *vars, char *path)
 	if (vars->error)
 		check_errno(vars->error, vars);
 }
-
-// void	read_file(t_vars *vars, char *path)
-// {
-// 	init_vars_parsing(vars);
-// 	check_file(vars, path);
-// 	init_map_info(vars, path);
-// 	if (check_map(vars))
-// 		print_error("Invalid map", vars);
-// }

@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:14:28 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 14:40:16 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:20:04 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ static int	can_move2(t_vars *vars, int x, int y)
 		return (1);
 	}
 	if (spot == 'E' && vars->cnt_collect == 0)
+	{
+		write(1, "Success game\n", 13);
 		exit_game(vars);
+	}
 	if (spot == 'M')
 		vars->dead = 1;
 	return (0);
@@ -49,6 +52,7 @@ static void	move_player(t_vars *vars, int x, int y)
 		vars->map[(pos[X] + x) * vars->width + (pos[Y] + y)] = 'P';
 		vars->pos[X] += x;
 		vars->pos[Y] += y;
+		vars->cnt_step++;
 	}
 }
 
@@ -88,6 +92,13 @@ void	attack(t_vars *vars, int key)
 		vars->map[pos[X] * vars->width + pos[Y]] = '0';
 }
 
+void	reset_game(t_vars *vars)
+{
+	free(vars->map);
+	read_file(vars, vars->file_name);
+	init_vars_info(vars);
+}
+
 int	key_press(int keycode, t_vars *vars)
 {
 	// t_info	*info;
@@ -97,21 +108,9 @@ int	key_press(int keycode, t_vars *vars)
 	if (keycode == UP || keycode == DOWN \
 		|| keycode == LEFT || keycode == RIGHT)
 		attack(vars, keycode);
-	// info = &vars->info;
-	// map = vars->map.arr;
-	// if (keycode == P)
-	// 	reset_game(vars);
-	// if (vars->data.npc_talk)
-	// 	return (0);
+	if (keycode == P)
+		reset_game(vars);
 	if (keycode >= 0 && keycode <= 255)
 		vars->keyboard[keycode] = 1;
-	// if (keycode == N || keycode == M)
-	// 	adjust_gamespeed(info, keycode);
-	// if (keycode == Q)
-	// 	turn_back(info);
-	// if (keycode == B)
-	// 	open_door_tell_npc(vars, map);
-	// if (keycode == R)
-	// 	return_ellinia(vars);
 	return (0);
 }
