@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:14:28 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 14:37:52 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 14:40:16 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	attack(t_vars *vars, int key)
 
 	pos[X] = vars->pos[X];
 	pos[Y] = vars->pos[Y];
+	if (vars->dead)
+		return ;
 	if (key == UP && pos[X] - 1 >= 0)
 		pos[X] -= 1;
 	if (key == DOWN && pos[X] + 1 < vars->height)
