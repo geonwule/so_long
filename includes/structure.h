@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:21:00 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/05 14:22:46 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 14:36:35 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_mini
 	void	*wall;
 	void	*monster;
 	void	*exit_close;
-	void	*exit_oepn;
+	void	*exit_open;
 	void	*potion;
 	void	*dead;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_xpm_set.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 03:13:33 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/05 03:14:26 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/11 14:36:21 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	process_img_xpm_set1(t_vars *vars, int x, int y)
 	vars->mini.wall = ft_xpm_file_to_image(vars->mlx, WALL, &x, &y);
 	vars->mini.monster = ft_xpm_file_to_image(vars->mlx, MONSTER, &x, &y);
 	vars->mini.exit_close = ft_xpm_file_to_image(vars->mlx, EXIT_CLOSE, &x, &y);
-	vars->mini.exit_oepn = ft_xpm_file_to_image(vars->mlx, EXIT_OPEN, &x, &y);
+	vars->mini.exit_open = ft_xpm_file_to_image(vars->mlx, EXIT_OPEN, &x, &y);
 	vars->mini.potion = ft_xpm_file_to_image(vars->mlx, POTION, &x, &y);
 	vars->mini.dead = ft_xpm_file_to_image(vars->mlx, DEAD, &x, &y);
 	// vars->mini.dir = ft_xpm_file_to_image(vars->mlx, M_DIR, &x, &y);

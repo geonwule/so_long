@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 04:35:32 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/07 12:00:29 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/11 14:32:08 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,19 @@ static void	patrol(t_vars *vars)
 	int	step;
 
 	vars->patrol++;
+	if (vars->patrol % 50 != 25 && vars->patrol % 50 != 0)
+		return ;
 	i = -1;
 	while (++i < vars->height)
 	{
 		j = -1;
 		while (++j < vars->width)
 		{
-			if (vars->map[i * vars->width + j] == 'M' \
-			&& (vars->patrol % 10 == 5 || vars->patrol % 10 == 0))
+			if (vars->map[i * vars->width + j] == 'M')
 			{
-				if (vars->patrol % 10 == 5)
+				if (vars->patrol % 50 == 25)
 					step = -1;
-				else if (vars->patrol % 10 == 0)
+				else if (vars->patrol % 50 == 0)
 					step = 1;
 				if (vars->map[i * vars->width + j + step] == 'P')
 				{
@@ -79,6 +80,8 @@ static void	patrol(t_vars *vars)
 				}
 				vars->map[i * vars->width + j] = '0';
 				vars->map[i * vars->width + j + step] = 'M';
+				if (j < j + step)
+					j += step;
 			}
 		}
 	}
