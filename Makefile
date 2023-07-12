@@ -33,9 +33,10 @@ INIT_SRCS	= $(addprefix $(INIT_DIR), $(_INIT_SRCS))
 EVENT_DIR	= srcs/event/
 
 _EVENT_SRCS	= rendering.c				\
-			  mini_map.c				\
+			  set_map.c				\
 			  key_event.c				\
 			  manage_monster.c			\
+			  event_util.c 				\
 
 
 EVENT_SRCS	= $(addprefix $(EVENT_DIR), $(_EVENT_SRCS))

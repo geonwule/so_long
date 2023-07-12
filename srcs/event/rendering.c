@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:17:00 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:45:12 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:31:32 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 static int	dead_check_game_end(t_vars *vars)
 {
 	if (vars->dead == 10000)
+	{
+		ft_write(1, "Fail...\n");
 		exit_game(vars);
+	}
 	if (!vars->dead)
 		return (0);
 	vars->dead++;
-	if (vars->keyboard[ESC])
-		exit_game(vars);
 	return (1);
 }
 
@@ -29,10 +30,16 @@ static void	warning_message(t_vars *vars)
 	if (vars->monster_num)
 		return ;
 	vars->warning_time++;
-	if (vars->warning_time % 7 == 0)
+	if (vars->warning_time == WARNING_MAX)
+		vars->warning_time = 51;
+	if (vars->warning_time % 10 == 0)
 		return ;
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->xpm.warning \
-		, vars->width / 4 * 50, vars->height / 3 * 50);
+	if (vars->warning_time >= 51)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->xpm.warning_s \
+			, vars->width / 3 * 50, vars->height / 10 * 50);
+	else
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->xpm.warning \
+			, vars->width / 4 * 50, vars->height / 3 * 50);
 }
 
 static void	print_step(t_vars *vars)
@@ -54,11 +61,11 @@ int	rendering(t_vars *vars)
 	manage_monster(vars);
 	mlx_clear_window(vars->mlx, vars->win);
 	fill_background(vars);
-	mini_map(vars);
+	set_map(vars);
 	print_step(vars);
 	warning_message(vars);
 	if (vars->dead && ++vars->dead_check)
 		mlx_put_image_to_window(vars->mlx, vars->win, \
-			vars->mini.dead, vars->pos[Y] * 50, vars->pos[X] * 50);
+			vars->xpm.dead, vars->pos[Y] * 50, vars->pos[X] * 50);
 	return (0);
 }

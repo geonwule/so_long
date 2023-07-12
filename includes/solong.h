@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:19:21 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:39:23 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:30:46 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+//bonus_random_generator
 # include <time.h>
 # include <sys/time.h>
 
@@ -39,15 +40,17 @@ void	map_error(t_vars *vars);
 // parsing/check_valid.c
 void	dfs_valid_path(t_vars *vars);
 
+// event/event_util.c
+void	attack(t_vars *vars, int key);
+void	reset_game(t_vars *vars);
 // event/key_event.c
-int		key_release(int keycode, t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
 // event/manage_monster.c
 void	manage_monster(t_vars *vars);
 // event/rendering.c
 int		rendering(t_vars *vars);
-// event/mini_map.c
-void	mini_map(t_vars *vars);
+// event/set_map.c
+void	set_map(t_vars *vars);
 
 // utils/print_error.c
 void	print_error(char *str, t_vars *vars);

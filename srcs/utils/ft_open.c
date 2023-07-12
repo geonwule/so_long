@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:12:38 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:50:17 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_open(char *file_path)
 	fd = open(file_path, O_RDONLY, 0600);
 	if (fd < 0)
 	{
-		printf("Error\n");
+		ft_write(2, "Error\n");
 		perror("open");
 		exit(EXIT_FAILURE);
 	}

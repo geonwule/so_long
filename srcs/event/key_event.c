@@ -6,20 +6,13 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:14:28 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:47:56 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:44:00 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-int	key_release(int keycode, t_vars *vars)
-{
-	if (keycode >= 0 && keycode <= 255)
-		vars->keyboard[keycode] = 0;
-	return (0);
-}
-
-static int	can_move2(t_vars *vars, int x, int y)
+static int	can_move(t_vars *vars, int x, int y)
 {
 	char	spot;
 
@@ -47,7 +40,7 @@ static void	move_player(t_vars *vars, int x, int y)
 
 	pos[X] = vars->pos[X];
 	pos[Y] = vars->pos[Y];
-	if (can_move2(vars, pos[X] + x, pos[Y] + y))
+	if (can_move(vars, pos[X] + x, pos[Y] + y))
 	{
 		vars->map[pos[X] * vars->width + pos[Y]] = '0';
 		vars->map[(pos[X] + x) * vars->width + (pos[Y] + y)] = 'P';
@@ -76,47 +69,13 @@ static void	key_check(t_vars *vars, int keycode)
 		move_player(vars, 0, -1);
 }
 
-void	attack(t_vars *vars, int key)
-{
-	int	pos[2];
-
-	pos[X] = vars->pos[X];
-	pos[Y] = vars->pos[Y];
-	if (vars->dead)
-		return ;
-	if (key == UP && pos[X] - 1 >= 0)
-		pos[X] -= 1;
-	if (key == DOWN && pos[X] + 1 < vars->height)
-		pos[X] += 1;
-	if (key == LEFT && pos[Y] - 1 >= 0)
-		pos[Y] -= 1;
-	if (key == RIGHT && pos[Y] + 1 < vars->width)
-		pos[Y] += 1;
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->mini.exit_open,\
-							 pos[Y] * 50, pos[X] * 50);
-	if (vars->map[pos[X] * vars->width + pos[Y]] == 'M')
-		vars->map[pos[X] * vars->width + pos[Y]] = '0';
-}
-
-void	reset_game(t_vars *vars)
-{
-	free(vars->map);
-	init_vars_info(vars);
-	read_file(vars, vars->file_name);
-}
-
 int	key_press(int keycode, t_vars *vars)
 {
-	// t_info	*info;
-	// char	**map;
-
 	key_check(vars, keycode);
 	if (keycode == UP || keycode == DOWN \
 		|| keycode == LEFT || keycode == RIGHT)
 		attack(vars, keycode);
 	if (keycode == P)
 		reset_game(vars);
-	if (keycode >= 0 && keycode <= 255)
-		vars->keyboard[keycode] = 1;
 	return (0);
 }

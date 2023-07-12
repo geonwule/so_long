@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 03:10:49 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:53:04 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 void	init_vars_info(t_vars *vars)
 {
-	int	i;
-
-	i = 0;
-	while (i < 256)
-	{
-		vars->keyboard[i] = 0;
-		i++;
-	}
 	vars->map = NULL;
 	vars->height = 0;
 	vars->width = 0;

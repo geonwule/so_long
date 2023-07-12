@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 13:39:02 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:16:58 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ static void	check_surrounded(t_vars *vars)
 
 static void	check_errno(int errno, t_vars *vars)
 {
-	if (errno == NO_RECTANGULAR)
+	if (errno == NO_FILENAME)
+		print_error("File name must end :.ber", vars);
+	else if (errno == NO_RECTANGULAR)
 		print_error("Invalid map: NO RECTANGULAR", vars);
 	else if (errno == NO_SURROUND)
 		print_error("Invalid map: NO SURROUNDED WALL", vars);

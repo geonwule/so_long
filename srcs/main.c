@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:22:57 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:31:58 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char **av)
 	vars.win = mlx_new_window(vars.mlx, vars.width * 50, \
 				vars.height * 50, "so_long");
 	mlx_hook(vars.win, KEY_PRESS, PRESS_MASK, key_press, &vars);
-	mlx_hook(vars.win, KEY_RELEASE, RELEASE_MASK, key_release, &vars);
 	mlx_loop_hook(vars.mlx, rendering, &vars);
 	mlx_hook(vars.win, WINDOW_DESTROY, DESTROY_MASK, exit_game, &vars);
 	mlx_loop(vars.mlx);

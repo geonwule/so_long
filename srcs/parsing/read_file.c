@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:01:36 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:15:36 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,26 @@ static void	check_contain(t_vars *vars, char *map)
 		vars->error = NO_CONSIST;
 }
 
+static void	check_file_name(t_vars *vars, char *path)
+{
+	int	len;
+
+	len = ft_strlen(path);
+	if (len < 5)
+		vars->error = NO_FILENAME;
+	if (path[len - 1] != 'r' || path[len - 2] != 'e' \
+		|| path[len - 3] != 'b' || path[len - 4] != '.')
+		vars->error = NO_FILENAME;
+	if (vars->error)
+		map_error(vars);
+}
+
 void	read_file(t_vars *vars, char *path)
 {
 	char	*line;
 	int		fd;
 
+	check_file_name(vars, path);
 	fd = ft_open(path);
 	line = get_next_line(fd);
 	vars->width = ft_strlen_nonl(line);

@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:14:34 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 13:57:57 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:28:21 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@
 # define MON3 "texture/mon_3.xpm"
 # define EXIT_CLOSE "texture/exit_close.xpm"
 # define EXIT_OPEN "texture/exit_open.xpm"
-# define POTION "texture/collect.xpm"
+# define COLLECT "texture/collect.xpm"
 # define DEAD "texture/chobo_dead.xpm"
 # define WARNING "texture/warning.xpm"
+# define WARNING_S "texture/warning_s.xpm"
+# define PATROL_MAX 100000000
+# define WARNING_MAX 100000000
 
 enum	e_pos
 {
@@ -42,6 +45,7 @@ enum	e_map_error
 	NO_SURROUND,
 	NO_CONSIST,
 	NO_VALID,
+	NO_FILENAME,
 }	;
 
 enum	e_return_value

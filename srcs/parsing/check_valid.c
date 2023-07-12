@@ -6,7 +6,7 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 13:55:29 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:19:21 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ static int	dfs(t_vars *vars, int *collect_cnt, int step, int *check_exit)
 	char	*map;
 
 	map = vars->map2;
-	if (map[step] == 'C')
-	{
-		*collect_cnt -= 1;
-		map[step] = '1';
-	}
 	if (*collect_cnt == 0 && (map[step] == 'E' || *check_exit == 1))
 		return (1);
 	if (map[step] == '1')
@@ -45,6 +40,11 @@ static int	dfs(t_vars *vars, int *collect_cnt, int step, int *check_exit)
 	{
 		*check_exit = 1;
 		return (0);
+	}
+	if (map[step] == 'C')
+	{
+		*collect_cnt -= 1;
+		map[step] = '1';
 	}
 	if (map[step] == '0' || map[step] == 'P')
 		map[step] = '1';
@@ -68,6 +68,8 @@ void	dfs_valid_path(t_vars *vars)
 	int	c_cnt;
 	int	e;
 
+	if (vars->error)
+		return ;
 	i = 0;
 	c_cnt = vars->cnt_collect;
 	vars->map2 = map_copy(vars);
