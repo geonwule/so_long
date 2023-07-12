@@ -6,11 +6,11 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 19:36:50 by geonwule          #+#    #+#             */
-/*   Updated: 2023/06/01 16:13:18 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 size_t	ft_strlen_gnl(const char *s)
 {

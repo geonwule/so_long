@@ -6,11 +6,11 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:12:38 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/05 17:17:03 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 int	ft_open(char *file_path)
 {

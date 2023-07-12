@@ -14,6 +14,8 @@ GNL_SRCS	= $(addprefix $(GNL_DIR), $(_GNL_SRCS))
 PARSING_DIR	= srcs/parsing/
 
 _PARSING_SRCS	= read_file.c		\
+				  check_error.c 	\
+				  check_valid.c 	\
 
 				  
 
@@ -22,6 +24,7 @@ PARSING_SRCS	= $(addprefix $(PARSING_DIR), $(_PARSING_SRCS))
 INIT_DIR	= srcs/init/
 
 _INIT_SRCS	=	init_vars_info.c	\
+				init_xpm_file.c 	\
 				init_background.c	\
 
 
@@ -42,6 +45,9 @@ UTILS_DIR	= srcs/utils/
 _UTILS_SRCS	=	print_error.c			\
 				ft_malloc.c				\
 				ft_open.c				\
+				ft_write.c 				\
+				ft_strjoin_so.c 		\
+				ft_strlen_nonl.c 		\
 				exit_game.c				\
 				ft_get_data_addr.c		\
 				ft_xpm_file_to_image.c	\
@@ -85,16 +91,16 @@ MLXFLAGS = -Lmlx_opengl -lmlx -framework OpenGL -framework AppKit
 
 CC = cc
 
-CFLAGS =
-# -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
-DEBUG_FLAG = -fsanitize=address  -g
+DEBUG_FLAG = -fsanitize=undefined  -g
+#-fsanitize=address  -g
 #-fsanitize=undefined  -g
 #-O2
 
-NAME = cub3d
+NAME = so_long
 
-BONUS_NAME = bonus_cub3d
+BONUS_NAME = bonus_so_long
 
 #color
 DEF_COLOR = \033[0;39m
@@ -123,11 +129,11 @@ ${NAME} : ${OBJS}
 	@cp ${LIBFT_DIR}/${LIBFT} .
 	@echo "$(GREEN)libft compiled!$(DEF_COLOR)"
 	@${CC} ${CFLAGS} $^ ${MLXFLAGS} ${LIBFT} -o ${NAME}
-	@echo "$(GREEN)cub_3d compiled!$(DEF_COLOR)"
+	@echo "$(GREEN)so_long compiled!$(DEF_COLOR)"
 
 bonus : ${BONUS_OBJS}
 	@${CC} ${CFLAGS} $^ ${MLXFLAGS} ${LIBFT} -o ${BONUS_NAME}
-	@echo "$(GREEN)cub_3d_bonus_compiled!$(DEF_COLOR)"
+	@echo "$(GREEN)so_long_bonus_compiled!$(DEF_COLOR)"
 
 debug : ${OBJS}
 	@${CC} ${DEBUG_FLAG} $^ ${MLXFLAGS} ${LIBFT} -o ${NAME}
@@ -138,7 +144,7 @@ clean :
 	@rm -rf ${OBJS_DIR}
 	@rm -f ${BONUS_OBJS}
 	@echo "$(BLUE)libft object files cleaned!$(DEF_COLOR)"
-	@echo "$(BLUE)cub_3d object files cleaned!$(DEF_COLOR)"
+	@echo "$(BLUE)so_long object files cleaned!$(DEF_COLOR)"
 
 fclean : clean
 	@make fclean -C ${LIBFT_DIR}
@@ -147,11 +153,11 @@ fclean : clean
 	@rm -f ${BONUS_NAME}
 	@rm -f debug
 	@echo "$(YELLOW)libft library files cleaned!$(DEF_COLOR)"
-	@echo "$(YELLOW)cub_3d library files cleaned!$(DEF_COLOR)"
+	@echo "$(YELLOW)so_long library files cleaned!$(DEF_COLOR)"
 
 re :
 	${MAKE} fclean
 	${MAKE} all
-	@echo "$(MAGENTA)Cleaned and rebuilt everything for cub_3d!$(DEF_COLOR)"
+	@echo "$(MAGENTA)Cleaned and rebuilt everything for so_long!$(DEF_COLOR)"
 
 .PHONY : all clean fclean re bonus debug

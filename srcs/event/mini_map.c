@@ -6,13 +6,13 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:23:47 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 17:11:07 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
-static void	sprite_monster(t_vars *vars, char *map, int x, int y)
+static void	sprite_monster(t_vars *vars, int x, int y)
 {
 	if (vars->sprite % 30 < 10)
 		mlx_put_image_to_window(vars->mlx, vars->win, \
@@ -34,7 +34,7 @@ static void	put_mini_xpm(t_vars *vars, char *map, int x, int y)
 		mlx_put_image_to_window(vars->mlx, vars->win, \
 					vars->mini.wall, y * 50, x * 50);
 	else if (map[x * vars->width + y] == 'M')
-		sprite_monster(vars, map, x, y);
+		sprite_monster(vars, x, y);
 	else if (map[x * vars->width + y] == 'C')
 		mlx_put_image_to_window(vars->mlx, vars->win, \
 					vars->mini.potion, y * 50, x * 50);

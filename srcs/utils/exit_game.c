@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:15:17 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/05 11:18:45 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 int	exit_game(t_vars *vars)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   random_generator.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:03:07 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/05 11:13:28 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 int	random_generator(int frequency)
 {

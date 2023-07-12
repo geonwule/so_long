@@ -6,11 +6,11 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 15:24:20 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 17:22:31 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 void	fill_background(t_vars *vars)
 {

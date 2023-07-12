@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_data_addr.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin_so.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 11:19:00 by jonchoi           #+#    #+#             */
+/*   Created: 2023/07/12 13:32:13 by geonwule          #+#    #+#             */
 /*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-char	*ft_get_data_addr(void *img_ptr, int *bits, int *size, int *end)
+char	*ft_strjoin_so(char const *s1, char const *s2)
 {
-	char	*data;
+	char	*map;
+	int		s1_len;
+	int		s2_len;
+	int		i[2];
 
-	data = mlx_get_data_addr(img_ptr, bits, size, end);
-	if (data == NULL)
-	{
-		printf("Error\n");
-		printf("mlx_get_data_addr: img_ptr not exist\n");
-		exit(EXIT_FAILURE);
-	}
-	return (data);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	if (s2[s2_len - 1] == '\n')
+		s2_len -= 1;
+	map = (char *)ft_malloc(sizeof(char) * (s1_len + s2_len + 1));
+	i[0] = -1;
+	i[1] = -1;
+	while (++i[0] < s1_len)
+		map[i[0]] = s1[i[0]];
+	while (++i[1] < s2_len)
+		map[i[0] + i[1]] = s2[i[1]];
+	map[s1_len + s2_len] = '\0';
+	if (s1 != NULL)
+		free((void *)s1);
+	return (map);
 }

@@ -6,11 +6,11 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 04:35:32 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/11 14:32:08 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 static int	is_next_empty(t_vars *vars, char *map, int i, int j)
 {

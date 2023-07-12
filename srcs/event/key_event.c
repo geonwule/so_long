@@ -6,11 +6,11 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:14:28 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 17:20:04 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:47:56 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 int	key_release(int keycode, t_vars *vars)
 {
@@ -42,7 +42,8 @@ static int	can_move2(t_vars *vars, int x, int y)
 
 static void	move_player(t_vars *vars, int x, int y)
 {
-	int	pos[2];
+	int		pos[2];
+	char	*step_str;
 
 	pos[X] = vars->pos[X];
 	pos[Y] = vars->pos[Y];
@@ -53,6 +54,11 @@ static void	move_player(t_vars *vars, int x, int y)
 		vars->pos[X] += x;
 		vars->pos[Y] += y;
 		vars->cnt_step++;
+		step_str = ft_itoa(vars->cnt_step);
+		ft_write(1, "step = ");
+		ft_write(1, step_str);
+		ft_write(1, "\n");
+		free(step_str);
 	}
 }
 
@@ -95,8 +101,8 @@ void	attack(t_vars *vars, int key)
 void	reset_game(t_vars *vars)
 {
 	free(vars->map);
-	read_file(vars, vars->file_name);
 	init_vars_info(vars);
+	read_file(vars, vars->file_name);
 }
 
 int	key_press(int keycode, t_vars *vars)

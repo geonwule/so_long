@@ -6,11 +6,11 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:17:00 by geonwule          #+#    #+#             */
-/*   Updated: 2023/07/11 17:14:11 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:45:12 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
 static int	dead_check_game_end(t_vars *vars)
 {
@@ -51,7 +51,6 @@ int	rendering(t_vars *vars)
 {
 	if (dead_check_game_end(vars) && vars->dead_check)
 		return (0);
-	// print_map(vars, vars->map);
 	manage_monster(vars);
 	mlx_clear_window(vars->mlx, vars->win);
 	fill_background(vars);

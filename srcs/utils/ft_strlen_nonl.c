@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_data_addr.c                                 :+:      :+:    :+:   */
+/*   ft_strlen_nonl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 11:19:00 by jonchoi           #+#    #+#             */
+/*   Created: 2023/07/12 13:32:44 by geonwule          #+#    #+#             */
 /*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-char	*ft_get_data_addr(void *img_ptr, int *bits, int *size, int *end)
+int	ft_strlen_nonl(char *str)
 {
-	char	*data;
+	int	i;
 
-	data = mlx_get_data_addr(img_ptr, bits, size, end);
-	if (data == NULL)
-	{
-		printf("Error\n");
-		printf("mlx_get_data_addr: img_ptr not exist\n");
-		exit(EXIT_FAILURE);
-	}
-	return (data);
+	i = 0;
+	while (str[i] != '\0' && str[i] != '\n')
+		i++;
+	return (i);
 }

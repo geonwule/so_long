@@ -6,35 +6,32 @@
 /*   By: geonwule <geonwule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 03:10:49 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/11 17:18:55 by geonwule         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:15 by geonwule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "solong.h"
 
-
-static void	process_img_xpm_set1(t_vars *vars, int x, int y)
+void	init_vars_info(t_vars *vars)
 {
-	vars->mini.player = ft_xpm_file_to_image(vars->mlx, PLAYER, &x, &y);
-	vars->mini.empty = ft_xpm_file_to_image(vars->mlx, EMPTY, &x, &y);
-	vars->mini.wall = ft_xpm_file_to_image(vars->mlx, WALL, &x, &y);
-	vars->mini.exit_close = ft_xpm_file_to_image(vars->mlx, EXIT_CLOSE, &x, &y);
-	vars->mini.exit_open = ft_xpm_file_to_image(vars->mlx, EXIT_OPEN, &x, &y);
-	vars->mini.potion = ft_xpm_file_to_image(vars->mlx, POTION, &x, &y);
-	vars->mini.dead = ft_xpm_file_to_image(vars->mlx, DEAD, &x, &y);
-	vars->xpm.warning = ft_xpm_file_to_image(vars->mlx, WARNING, &x, &y);
-}
+	int	i;
 
-static void	process_img_xpm_set2(t_vars *vars, int x, int y)
-{
-	vars->mini.mon_1 = ft_xpm_file_to_image(vars->mlx, MON1, &x, &y);
-	vars->mini.mon_2 = ft_xpm_file_to_image(vars->mlx, MON2, &x, &y);
-	vars->mini.mon_3 = ft_xpm_file_to_image(vars->mlx, MON3, &x, &y);
-}
-
-int	init_vars_info(t_vars *vars)
-{
-	process_img_xpm_set1(vars, 0, 0);
-	process_img_xpm_set2(vars, 0, 0);
-	return (RETURN_SUCCESS);
+	i = 0;
+	while (i < 256)
+	{
+		vars->keyboard[i] = 0;
+		i++;
+	}
+	vars->map = NULL;
+	vars->height = 0;
+	vars->width = 0;
+	vars->cnt_step = 0;
+	vars->cnt_collect = 0;
+	vars->dead = 0;
+	vars->dead_check = 0;
+	vars->error = 0;
+	vars->monster_num = 0;
+	vars->warning_time = 0;
+	vars->patrol = 0;
+	vars->sprite = 0;
 }
