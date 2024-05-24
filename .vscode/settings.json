@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "solong.h": "c",
+        "mlx.h": "c",
+        "define.h": "c",
+        "libft.h": "c",
+        "structure.h": "c",
+        "__node_handle": "c",
+        "__split_buffer": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "fcntl.h": "c",
+        "stdio.h": "c",
+        "unistd.h": "c",
+        "math.h": "c"
+    }
+}
